@@ -5,7 +5,7 @@ Synchronises A1111 models with a Huggingface repository.
 ## Installation
 
 ```bash
-git clone https://github.com/ashleykleynhans/a1111-huggingface-sync.git
+git clone https://github.com/Chepko932/a1111-huggingface-sync
 cd a1111-huggingface-sync
 python3 -m venv venv
 source venv/bin/activate
