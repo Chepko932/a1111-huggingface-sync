@@ -30,7 +30,14 @@ if __name__ == '__main__':
 
     args = get_args()
     api = HfApi()
+    print(f'Listing files for repo_id: {args.repo_id}')
     models = api.list_repo_files(args.repo_id)
+    
+    if not models:
+        print(f'No files found in the repository {args.repo_id}')
+    else:
+        print(f'Found {len(models)} files in the repository.')
+
     sync_path = args.sync_path
     files_synced = 0
 
@@ -51,7 +58,8 @@ if __name__ == '__main__':
 
             if uri:
                 files_synced += 1
+        else:
+            print(f'Skipping {model}, it already exists at {dest_path}')
 
     print('Syncing complete')
     print(f'{files_synced} models were synced with Huggingface')
-
